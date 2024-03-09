@@ -16,19 +16,19 @@ class Results {
     sortResults() {
         this.data.sort((a, b) => b.votes - a.votes);
     }
-
+    
     renderTemplate() {
         const template = document.getElementById('template');
         template.innerHTML = '';
         this.data.forEach(option => {
             const percentage = Math.trunc((option.votes / this.totalVotes) * 100);
             template.innerHTML += `
-                <div class="poll__option ${this.selected == option.label ? "poll__option--selected" : ""}">
-                    <div class="poll__option-fill"></div>
-                    <div class="poll__option-info">
+                <div class="poll__option_result ${this.selected == option.label}">
+                    <div class="poll__option_result-info">
                         <span class="poll__label">${option.label}</span>
-                        <span class="poll__percentage">${percentage}%</span>
+                        <div class="poll__option_result-fill" style="width: ${percentage}%"></div> 
                     </div>
+                    <span class="poll__percentage">${percentage}%</span>
                 </div>
             `;
         });
