@@ -1,13 +1,20 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 50vh;
+    position: relative;
+    min-height: 100vh;
     margin: 0;
     background-image: url('background.jpg'); 
     background-size: cover;
-    font-family: 'Outfit'
+    font-family: 'Outfit';
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 img {
@@ -17,66 +24,43 @@ img {
     margin: auto;
     padding-top: 60px;
 }
-  
-
-.poll {
-    display: block;
-    width: 400px;
-    margin: 20px;
-    border-radius: 10px;
-    @font-face {
-        font-family: 'Outfit';
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtq.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, 
-        U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, 
-        U+FFFD;
-    }
-}
-
-.poll__title{
-    font-weight: bold;
-    font-size: 2.75rem;
-    margin-top: 20px;
-    text-align: center;
-    font-family: 'Outfit'
-}
-
-.poll__option:hover {
-    cursor: pointer;
-}
-
-.poll__option:not(:last-child) {
-    margin-bottom: 0.5rem;
-}
-
-.poll__option--selected .poll__option-fill{
-    background: #996BF9;
-}
-
-.poll__option-info{
-    display: flex;
-    justify-content: space-between;
-    
-    font-size: 0.85rem;
-}
 
 .poll {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-  }
-  
-  .poll__title {
+    margin: 20px;
+}
+
+.poll__title {
+    font-weight: bold;
+    font-size: 2.75rem;
+    margin-top: 20px;
+    text-align: center;
     color: white;
-  }
-  
-  .poll__option {
+}
+
+.main .poll__option:hover {
+    cursor: pointer;
+    background-color: #996BF9;
+}
+
+.poll__option:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+.poll__option--selected .poll__option-fill {
+    background: #996BF9;
+}
+
+.poll__option-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+
+.poll__option {
     align-items: center;
     display: block;
     padding: 10px 20px;
@@ -90,23 +74,19 @@ img {
     cursor: pointer;
     transition: background-color 0.3s;
     width: 250px;
-    font-family: 'Outfit'
-  }
-  
-  .poll__option:hover {
-    background-color: #996BF9;
-  }
-  
-  .poll__option--selected {
-    background-color: #996BF9;
-  }
+    font-family: 'Outfit';
+}
 
-  .poll__percentage{
+.poll__option--selected {
+    background-color: #996BF9;
+}
+
+.poll__percentage {
     color: #8C8C8C;
-    margin-left: 5px
-  }
-  
-  .submit-btn {
+    margin-left: 5px;
+}
+
+.submit-btn {
     margin-top: 10px;
     padding: 10px 20px;
     background-color: #fff;
@@ -116,27 +96,60 @@ img {
     cursor: pointer;
     transition: background-color 0.3s;
     width: 248px;
-    font-family: 'Outfit'; 
-    font-size: 50
-  }
-  
-  .submit-btn:hover {
+    font-family: 'Outfit';
+    font-size: 16px; 
+}
+
+.submit-btn:hover {
     background-color: #7e48e4;
-  }
+}
 
 h1 {
     color: #FFF;
     font-family: 'Outfit';
-    @font-face {
-        font-family: 'Outfit';
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtq.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, 
-        U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, 
-        U+FFFD;
-    }
+    text-align: center;
 }
 
+#template {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.poll__percentage {
+    color: #FFF
+}
+
+.poll__option_result {
+    position: relative;
+    display: flex;
+    align-items: center; /* Center the content vertically */
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: rgba(140, 140, 140, 0.5);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #8C8C8C;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 250px;
+    font-family: 'Outfit';
+}
+
+.poll__option_result-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #996BF9;
+    border-radius: 2px;
+    z-index: -1;
+}
+
+.poll__option_result-info {
+    display: flex;
+    align-items: center;
+}
